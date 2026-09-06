@@ -49,7 +49,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 ## Implementation status
 
 - [x] Phase 0: project foundation and source asset organization
-- [ ] Phase 1: shared design system and responsive page shell
+- [x] Phase 1: shared design system and responsive page shell
 - [ ] Phase 2: public marketing pages
 - [ ] Phase 3: client-side intake workflow
 - [ ] Phase 4: Supabase database and security foundation
@@ -65,4 +65,3 @@ See [the detailed project plan](docs/HiQuant_Web_Application_Project_Plan.md) fo
 ## Local development
 
 No build system or runtime dependency is required for the initial vanilla frontend. Development and preview instructions will be added when the first HTML pages are implemented.
-
