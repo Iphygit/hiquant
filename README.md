@@ -50,7 +50,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 
 - [x] Phase 0: project foundation and source asset organization
 - [x] Phase 1: shared design system and responsive page shell
-- [ ] Phase 2: public marketing pages
+- [x] Phase 2: public marketing pages
 - [ ] Phase 3: client-side intake workflow
 - [ ] Phase 4: Supabase database and security foundation
 - [ ] Phase 5: live intake integration
@@ -64,4 +64,12 @@ See [the detailed project plan](docs/HiQuant_Web_Application_Project_Plan.md) fo
 
 ## Local development
 
-No build system or runtime dependency is required for the initial vanilla frontend. Development and preview instructions will be added when the first HTML pages are implemented.
+No build system or runtime dependency is required for the vanilla frontend. To preview the public site, open `index.html` directly or serve the project directory with any local static-file server.
+
+Current public pages:
+
+- `index.html` — company positioning, services, industries, approach, and consultation call to action
+- `privacy.html` — website privacy notice draft
+- `terms.html` — website terms draft
+
+The privacy and terms pages require review and verified business contact details before production launch. See `docs/public-content.md` for the content assumptions and launch checklist.

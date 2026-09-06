@@ -488,7 +488,7 @@ h3 {
 
 .service-card {
   display: flex;
-  min-height: 24rem;
+  min-height: 22rem;
   flex-direction: column;
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border: 1px solid var(--line);
@@ -570,6 +570,202 @@ h3 {
 .prose-large {
   color: var(--slate);
   font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+}
+
+.why-grid {
+  display: grid;
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.proof-card {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 3px solid var(--teal-500);
+  background: var(--mist);
+}
+
+.proof-kicker {
+  margin-bottom: 2.75rem;
+  color: var(--teal-700);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.proof-card h3 {
+  color: var(--navy-900);
+}
+
+.proof-card > p:last-child {
+  margin-bottom: 0;
+  color: var(--slate);
+}
+
+.process-grid {
+  display: grid;
+  padding: 0;
+  margin-block: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.process-step {
+  min-height: 19rem;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  background: var(--white);
+}
+
+.process-step > span {
+  display: block;
+  margin-bottom: 4.5rem;
+  color: var(--teal-700);
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.process-step h3 {
+  color: var(--navy-900);
+}
+
+.process-step p {
+  margin-bottom: 0;
+  color: var(--slate);
+}
+
+.page-hero {
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.legal-hero-inner {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+
+.page-hero h1 {
+  max-width: none;
+  margin-bottom: 1rem;
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+}
+
+.page-hero .legal-hero-inner > p:not(.eyebrow, .breadcrumb, .page-meta) {
+  max-width: 45rem;
+  color: #c8d3e2;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+}
+
+.breadcrumb {
+  margin-bottom: 2.5rem;
+  color: #9fb0c6;
+  font-size: 0.82rem;
+}
+
+.breadcrumb a {
+  color: var(--white);
+  text-underline-offset: 0.25rem;
+}
+
+.breadcrumb span {
+  margin-inline: 0.5rem;
+}
+
+.page-meta {
+  margin: 2rem 0 0;
+  color: #9fb0c6;
+  font-size: 0.8rem;
+}
+
+.legal-layout {
+  display: grid;
+  align-items: start;
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  grid-template-columns: minmax(12rem, 0.32fr) minmax(0, 0.68fr);
+  gap: clamp(3rem, 9vw, 8rem);
+}
+
+.legal-nav {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+  display: grid;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--line);
+  gap: 0.45rem;
+}
+
+.legal-nav p {
+  margin-bottom: 0.65rem;
+  color: var(--navy-900);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.legal-nav a {
+  color: var(--slate);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.legal-nav a:hover {
+  color: var(--teal-700);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.legal-content {
+  max-width: 48rem;
+}
+
+.legal-content section {
+  padding-block: 1.6rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.legal-content section:first-of-type {
+  padding-top: 0;
+}
+
+.legal-content section:last-child {
+  border-bottom: 0;
+}
+
+.legal-content h2 {
+  margin-bottom: 0.9rem;
+  color: var(--navy-900);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  letter-spacing: -0.025em;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--slate);
+}
+
+.legal-content li + li {
+  margin-top: 0.55rem;
+}
+
+.notice-box {
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid #b7e9e6;
+  border-left: 4px solid var(--teal-700);
+  background: var(--teal-100);
+}
+
+.notice-box strong {
+  color: var(--navy-900);
+}
+
+.notice-box p {
+  margin: 0.35rem 0 0;
+  color: var(--ink);
 }
 
 .contact-band {
@@ -722,6 +918,28 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .legal-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .legal-nav {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legal-nav p {
+    grid-column: 1 / -1;
+  }
+
   .service-card {
     min-height: 20rem;
   }
@@ -764,6 +982,22 @@ h3 {
   }
 
   .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    min-height: auto;
+  }
+
+  .process-step > span {
+    margin-bottom: 2rem;
+  }
+
+  .legal-nav {
     grid-template-columns: 1fr;
   }
 
