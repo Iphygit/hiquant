@@ -52,7 +52,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 1: shared design system and responsive page shell
 - [x] Phase 2: public marketing pages
 - [x] Phase 3: client-side intake workflow
-- [ ] Phase 4: Supabase database and security foundation
+- [x] Phase 4: Supabase database and security foundation (initial admin enrollment pending)
 - [ ] Phase 5: live intake integration
 - [ ] Phase 6: administrator authentication
 - [ ] Phase 7: intake administration
@@ -74,3 +74,7 @@ Current public pages:
 - `terms.html` — website terms draft
 
 The privacy and terms pages require review and verified business contact details before production launch. See `docs/public-content.md` for the content assumptions and launch checklist.
+
+## Database setup
+
+The versioned Supabase schema and RLS policies live in `sql/`. See `docs/database-security.md` for the security model, administrator setup, and verification checklist. Never expose a service-role key in this static website.
