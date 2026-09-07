@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Secure administrator sign-in for HiQuant Consulting LLC.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#071f45">
+    <title>Administrator Sign In | HiQuant Consulting LLC</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo_white_bg.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.min.js" defer></script>
+    <script src="../js/config.js" defer></script>
+    <script src="../js/supabase.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin-login.js" defer></script>
+  </head>
+  <body class="admin-auth-page">
+    <a class="skip-link" href="#main-content">Skip to sign in</a>
+    <header class="admin-public-header">
+      <div class="container admin-header-inner">
+        <a class="brand" href="../index.html" aria-label="HiQuant Consulting home">
+          <img class="brand-logo" src="../assets/logo/logo_white_bg.png" alt="" width="1254" height="1254">
+          <span class="brand-name"><strong>HiQuant</strong><span>Consulting LLC</span></span>
+        </a>
+        <a class="admin-back-link" href="../index.html">Return to public website</a>
+      </div>
+    </header>
+    <main id="main-content" class="admin-auth-main">
+      <div class="container admin-auth-layout">
+        <section class="admin-auth-intro" aria-labelledby="login-title">
+          <p class="eyebrow">Restricted access</p>
+          <h1 id="login-title">Administrator sign in</h1>
+          <p>This area is limited to approved HiQuant administrators. Authentication alone does not grant access; the account must also be active in the administrator allowlist.</p>
+          <ul class="admin-security-list">
+            <li><span aria-hidden="true">01</span>Use only your designated administrator account.</li>
+            <li><span aria-hidden="true">02</span>Do not sign in from a shared or public device.</li>
+            <li><span aria-hidden="true">03</span>Sign out when administrative work is complete.</li>
+          </ul>
+        </section>
+        <section class="auth-card" aria-labelledby="sign-in-heading">
+          <div class="auth-card-heading">
+            <p class="eyebrow eyebrow-dark">HiQuant administration</p>
+            <h2 id="sign-in-heading">Welcome back</h2>
+            <p>Enter the email and password for your approved account.</p>
+          </div>
+          <div class="form-alert form-alert-error is-hidden" data-auth-error tabindex="-1" role="alert"></div>
+          <div class="form-alert form-alert-success is-hidden" data-auth-success tabindex="-1" role="status"></div>
+          <form class="auth-form" data-login-form novalidate>
+            <div class="form-field">
+              <label for="admin_email">Email address</label>
+              <input id="admin_email" name="email" type="email" autocomplete="username" maxlength="254" required aria-describedby="admin_email-error">
+              <p class="field-error" id="admin_email-error" data-error-for="email"></p>
+            </div>
+            <div class="form-field">
+              <label for="admin_password">Password</label>
+              <input id="admin_password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required aria-describedby="admin_password-error">
+              <p class="field-error" id="admin_password-error" data-error-for="password"></p>
+            </div>
+            <button class="button submit-button auth-submit" type="submit" data-login-button>
+              <span data-login-label>Sign in securely</span>
+              <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+          <button class="auth-text-button" type="button" data-show-recovery>Forgot your password?</button>
+          <form class="auth-form auth-recovery-form is-hidden" data-recovery-form novalidate>
+            <div class="auth-divider" aria-hidden="true"></div>
+            <h3>Request a password reset</h3>
+            <p>Enter your administrator email. If the account exists, Supabase will send recovery instructions.</p>
+            <div class="form-field">
+              <label for="recovery_email">Administrator email</label>
+              <input id="recovery_email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="recovery_email-error">
+              <p class="field-error" id="recovery_email-error" data-recovery-error></p>
+            </div>
+            <div class="auth-action-row">
+              <button class="button button-small" type="submit" data-recovery-button>Send reset instructions</button>
+              <button class="auth-text-button" type="button" data-hide-recovery>Cancel</button>
+            </div>
+          </form>
+          <p class="auth-help">No registration is available on this website. Administrator accounts are created and approved manually.</p>
+        </section>
+      </div>
+    </main>
+    <footer class="admin-auth-footer">
+      <div class="container"><p>&copy; <span data-current-year>2026</span> HiQuant Consulting LLC. Authorized access only.</p></div>
+    </footer>
+  </body>
+</html>

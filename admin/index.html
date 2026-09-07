@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HiQuant Consulting administrator portal.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#071f45">
+    <title>Administrator Portal | HiQuant Consulting LLC</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo_white_bg.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.min.js" defer></script>
+    <script src="../js/config.js" defer></script>
+    <script src="../js/supabase.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin-guard.js" defer></script>
+  </head>
+  <body class="admin-portal-page">
+    <a class="skip-link" href="#main-content">Skip to administrator portal</a>
+    <div class="admin-loading" data-auth-loading role="status">
+      <span class="admin-loading-mark" aria-hidden="true"></span>
+      <p>Verifying administrator access…</p>
+    </div>
+    <div class="admin-shell is-hidden" data-protected-content>
+      <header class="admin-topbar">
+        <div class="container admin-topbar-inner">
+          <a class="brand brand-admin" href="index.html" aria-label="HiQuant administrator portal">
+            <img class="brand-logo" src="../assets/logo/logo_white_bg.png" alt="" width="1254" height="1254">
+            <span class="brand-name"><strong>HiQuant</strong><span>Administration</span></span>
+          </a>
+          <div class="admin-account">
+            <div>
+              <strong data-admin-name>Administrator</strong>
+              <span data-admin-email></span>
+            </div>
+            <button class="button button-small admin-signout" type="button" data-signout>Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main id="main-content" class="admin-main">
+        <div class="container">
+          <p class="eyebrow eyebrow-dark">Secure workspace</p>
+          <h1>Administrator access confirmed.</h1>
+          <p class="admin-lead">Your authenticated account and active administrator membership have both been verified.</p>
+          <section class="admin-phase-card" aria-labelledby="phase-heading">
+            <div>
+              <p class="admin-phase-label">Phase 6 complete</p>
+              <h2 id="phase-heading">The protected portal foundation is ready.</h2>
+              <p>Client intake management will be added in Phase 7. No submission data is loaded on this authentication-only page.</p>
+            </div>
+            <ol class="admin-check-list">
+              <li><span aria-hidden="true">✓</span>Supabase session verified</li>
+              <li><span aria-hidden="true">✓</span>Administrator allowlist verified</li>
+              <li><span aria-hidden="true">✓</span>Row Level Security remains authoritative</li>
+              <li><span aria-hidden="true">✓</span>Local session logout available</li>
+            </ol>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
