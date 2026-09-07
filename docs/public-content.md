@@ -17,7 +17,7 @@ The Phase 2 homepage groups the planned offerings into six clear entry points:
 
 ## Calls to action
 
-Public calls to action now lead to `intake.html`. The Phase 3 form performs complete frontend validation but explicitly tells visitors that information is not transmitted or stored until the secure backend connection is completed in Phase 5.
+Public calls to action lead to `intake.html`. The form performs frontend validation and submits approved fields to the protected Supabase intake table. Visitors are still instructed not to include confidential or regulated information.
 
 ## Legal-page status
 

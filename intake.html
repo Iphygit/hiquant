@@ -8,6 +8,9 @@
     <title>Consultation Inquiry | HiQuant Consulting LLC</title>
     <link rel="icon" type="image/png" href="assets/logo/logo_white_bg.png">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.min.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/supabase.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/intake.js" defer></script>
   </head>
@@ -62,8 +65,8 @@
 
           <div class="form-card">
             <div class="preview-notice" role="status">
-              <strong>Frontend preview</strong>
-              <span>Phase 3 submissions are validated but are not sent or saved.</span>
+              <strong>Secure submission</strong>
+              <span>Your inquiry is sent to HiQuant’s protected intake database.</span>
             </div>
 
             <div class="form-alert form-alert-error is-hidden" data-error-summary tabindex="-1" role="alert">
@@ -72,9 +75,9 @@
             </div>
 
             <div class="form-alert form-alert-success is-hidden" data-success-message tabindex="-1" role="status">
-              <p class="form-alert-kicker">Inquiry checked successfully</p>
-              <h2>Your information passed the frontend validation.</h2>
-              <p>This Phase 3 preview did not transmit or store your information. Secure submission will be connected after the database policies are completed and tested.</p>
+              <p class="form-alert-kicker">Inquiry received</p>
+              <h2>Thank you for contacting HiQuant Consulting.</h2>
+              <p>Your request has been received. We’ll review the details and follow up using your preferred contact method.</p>
             </div>
 
             <form id="intake-form" novalidate>
@@ -235,10 +238,10 @@
 
               <div class="form-actions">
                 <button class="button submit-button" type="submit" data-submit-button>
-                  <span data-submit-label>Check and preview submission</span>
+                  <span data-submit-label>Submit consultation inquiry</span>
                   <span class="button-spinner" data-submit-spinner aria-hidden="true"></span>
                 </button>
-                <p>Nothing is transmitted or stored during this frontend phase.</p>
+                <p>Your inquiry will be stored securely for review. Please read our <a href="privacy.html">privacy notice</a>.</p>
               </div>
             </form>
           </div>

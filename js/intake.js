@@ -95,23 +95,58 @@
     submitButton.disabled = loading;
     submitButton.setAttribute("aria-busy", String(loading));
     submitButton.dataset.loading = String(loading);
-    submitLabel.textContent = loading ? "Checking inquiry…" : "Check and preview submission";
+    submitLabel.textContent = loading ? "Submitting inquiry…" : "Submit consultation inquiry";
   }
 
   function updateCharacterCount() {
     characterCount.textContent = `${description.value.length} / ${description.maxLength}`;
   }
 
-  function mockSubmit() {
-    return new Promise(function (resolve, reject) {
-      window.setTimeout(function () {
-        if (new URLSearchParams(window.location.search).get("mockError") === "1") {
-          reject(new Error("Simulated submission error"));
-          return;
-        }
-        resolve();
-      }, 650);
+  function normalizedValue(fieldName) {
+    const value = form.elements[fieldName].value.trim();
+    return value || null;
+  }
+
+  function intakePayload() {
+    return {
+      first_name: normalizedValue("first_name"),
+      last_name: normalizedValue("last_name"),
+      company: normalizedValue("company"),
+      job_title: normalizedValue("job_title"),
+      email: normalizedValue("email"),
+      phone: normalizedValue("phone"),
+      service_category: normalizedValue("service_category"),
+      industry: normalizedValue("industry"),
+      project_description: normalizedValue("project_description"),
+      expected_start_date: normalizedValue("expected_start_date"),
+      project_duration: normalizedValue("project_duration"),
+      budget_range: normalizedValue("budget_range"),
+      preferred_contact_method: normalizedValue("preferred_contact_method"),
+      referral_source: normalizedValue("referral_source"),
+      consent_acknowledged: form.elements.consent.checked
+    };
+  }
+
+  async function submitIntake(payload) {
+    if (!window.hiquantSupabase) {
+      throw new Error("Submission service unavailable");
+    }
+
+    const { error } = await window.hiquantSupabase
+      .from("intakes")
+      .insert(payload);
+
+    if (error) throw error;
+  }
+
+  function showSuccess() {
+    form.reset();
+    controls.forEach(function (control) {
+      setFieldState(control, false);
     });
+    updateCharacterCount();
+    successMessage.classList.remove("is-hidden");
+    successMessage.focus();
   }
 
   controls.forEach(function (control) {
@@ -145,18 +180,18 @@
     setLoading(true);
 
     try {
-      await mockSubmit();
-      form.reset();
-      controls.forEach(function (control) {
-        setFieldState(control, false);
-      });
-      updateCharacterCount();
-      successMessage.classList.remove("is-hidden");
-      successMessage.focus();
+      if (form.elements.website.value) {
+        showSuccess();
+        return;
+      }
+
+      await submitIntake(intakePayload());
+      showSuccess();
     } catch (error) {
+      console.error("The intake submission failed.");
       errorList.replaceChildren();
       const item = document.createElement("li");
-      item.textContent = "The preview could not be completed. Your information was not sent or saved. Please try again.";
+      item.textContent = "We couldn’t submit your inquiry right now. Your information was not saved. Please try again.";
       errorList.append(item);
       errorSummary.classList.remove("is-hidden");
       errorSummary.focus();

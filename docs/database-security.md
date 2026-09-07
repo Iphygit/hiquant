@@ -74,6 +74,16 @@ The migration was applied to the connected project on September 7, 2026. Live da
 
 No Supabase Auth user exists yet. The business owner must create the initial administrator before `sql/create-admin-profile.sql` can be run and the administrator policy path can be tested end to end.
 
+## Phase 5 Data API verification result
+
+On September 7, 2026, the reusable `tests/public-api-smoke.mjs` check used the same browser publishable key as the live form and confirmed:
+
+- An approved anonymous intake insert returned HTTP 201.
+- Anonymous intake selection was rejected with HTTP 401.
+- An insert that attempted to set protected `status` was rejected with HTTP 401.
+- The temporary marked intake row was removed immediately afterward through the owner-level database connection.
+- The Supabase security advisor continued to report no findings.
+
 ## Operational notes
 
 - No delete policy exists for application roles. Records should be retained or removed only under a deliberate owner-level process.

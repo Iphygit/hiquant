@@ -53,7 +53,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 2: public marketing pages
 - [x] Phase 3: client-side intake workflow
 - [x] Phase 4: Supabase database and security foundation (initial admin enrollment pending)
-- [ ] Phase 5: live intake integration
+- [x] Phase 5: live intake integration
 - [ ] Phase 6: administrator authentication
 - [ ] Phase 7: intake administration
 - [ ] Phase 8: scheduling and appointment administration
@@ -69,7 +69,7 @@ No build system or runtime dependency is required for the vanilla frontend. To p
 Current public pages:
 
 - `index.html` — company positioning, services, industries, approach, and consultation call to action
-- `intake.html` — consultation inquiry form with frontend validation and mock submission handling
+- `intake.html` — live consultation inquiry form with frontend validation and secure Supabase submission
 - `privacy.html` — website privacy notice draft
 - `terms.html` — website terms draft
 
@@ -78,3 +78,5 @@ The privacy and terms pages require review and verified business contact details
 ## Database setup
 
 The versioned Supabase schema and RLS policies live in `sql/`. See `docs/database-security.md` for the security model, administrator setup, and verification checklist. Never expose a service-role key in this static website.
+
+The browser connection uses the public configuration in `js/config.js`. Its publishable key is safe to expose by design; access is restricted by PostgreSQL privileges and Row Level Security. See `docs/intake-integration.md` for the Phase 5 integration and smoke-test procedure.
