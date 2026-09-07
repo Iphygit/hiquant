@@ -51,7 +51,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 0: project foundation and source asset organization
 - [x] Phase 1: shared design system and responsive page shell
 - [x] Phase 2: public marketing pages
-- [ ] Phase 3: client-side intake workflow
+- [x] Phase 3: client-side intake workflow
 - [ ] Phase 4: Supabase database and security foundation
 - [ ] Phase 5: live intake integration
 - [ ] Phase 6: administrator authentication
@@ -69,6 +69,7 @@ No build system or runtime dependency is required for the vanilla frontend. To p
 Current public pages:
 
 - `index.html` — company positioning, services, industries, approach, and consultation call to action
+- `intake.html` — consultation inquiry form with frontend validation and mock submission handling
 - `privacy.html` — website privacy notice draft
 - `terms.html` — website terms draft
 

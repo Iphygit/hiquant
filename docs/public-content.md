@@ -17,7 +17,7 @@ The Phase 2 homepage groups the planned offerings into six clear entry points:
 
 ## Calls to action
 
-Public calls to action currently lead to the homepage contact section. The final secure inquiry action remains visibly unavailable until the Phase 3 form and its validation are implemented. This prevents the site from advertising a workflow that does not yet exist.
+Public calls to action now lead to `intake.html`. The Phase 3 form performs complete frontend validation but explicitly tells visitors that information is not transmitted or stored until the secure backend connection is completed in Phase 5.
 
 ## Legal-page status
 
@@ -29,4 +29,3 @@ Public calls to action currently lead to the homepage contact section. The final
 - Arrange legal review appropriate to the business and its operating locations.
 
 The pages do not claim that the public website is HIPAA-compliant and instruct visitors not to submit confidential, patient-identifiable, clinical, trade-secret, or other regulated information.
-

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tell HiQuant Consulting about your business, scientific, quality, data, or technology consulting need.">
+    <meta name="theme-color" content="#071f45">
+    <title>Consultation Inquiry | HiQuant Consulting LLC</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo_white_bg.png">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/intake.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="HiQuant Consulting home">
+          <img class="brand-logo" src="assets/logo/logo_white_bg.png" alt="" width="1254" height="1254">
+          <span class="brand-name"><strong>HiQuant</strong><span>Consulting LLC</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="sr-only">Open navigation menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#industries">Industries</a>
+          <a href="index.html#why">Why HiQuant</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="button button-small" href="intake.html" aria-current="page">Request a consultation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <header class="page-hero intake-hero">
+        <div class="container legal-hero-inner">
+          <p class="breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> Consultation inquiry</p>
+          <p class="eyebrow">Start a conversation</p>
+          <h1>Tell us what you’re working through.</h1>
+          <p>Share a high-level view of your consulting need. We’ll use it to understand the request and prepare for a useful first conversation.</p>
+        </div>
+      </header>
+
+      <section class="section section-tint" aria-labelledby="intake-title">
+        <div class="container intake-layout">
+          <aside class="intake-aside">
+            <p class="eyebrow eyebrow-dark">Before you begin</p>
+            <h2 id="intake-title">A few details help us route your inquiry.</h2>
+            <p>This form usually takes five to eight minutes. Required fields are marked with an asterisk.</p>
+            <div class="privacy-callout">
+              <strong>Keep the first message high-level.</strong>
+              <p>Do not include confidential, proprietary, patient-identifiable, clinical, trade-secret, or other regulated information. A suitable secure channel can be arranged later.</p>
+            </div>
+            <ul class="intake-expectations">
+              <li><span>01</span>Describe the business need, not sensitive underlying data.</li>
+              <li><span>02</span>Choose the closest service category; it can be refined later.</li>
+              <li><span>03</span>Submitting an inquiry does not create a client relationship.</li>
+            </ul>
+          </aside>
+
+          <div class="form-card">
+            <div class="preview-notice" role="status">
+              <strong>Frontend preview</strong>
+              <span>Phase 3 submissions are validated but are not sent or saved.</span>
+            </div>
+
+            <div class="form-alert form-alert-error is-hidden" data-error-summary tabindex="-1" role="alert">
+              <h2>Please check the highlighted fields.</h2>
+              <ul data-error-list></ul>
+            </div>
+
+            <div class="form-alert form-alert-success is-hidden" data-success-message tabindex="-1" role="status">
+              <p class="form-alert-kicker">Inquiry checked successfully</p>
+              <h2>Your information passed the frontend validation.</h2>
+              <p>This Phase 3 preview did not transmit or store your information. Secure submission will be connected after the database policies are completed and tested.</p>
+            </div>
+
+            <form id="intake-form" novalidate>
+              <div class="hp-field" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <fieldset class="form-section">
+                <legend><span>01</span>Contact information</legend>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="first_name">First name <span aria-hidden="true">*</span></label>
+                    <input id="first_name" name="first_name" type="text" autocomplete="given-name" maxlength="80" required aria-describedby="first_name-error">
+                    <p class="field-error" id="first_name-error" data-error-for="first_name"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="last_name">Last name <span aria-hidden="true">*</span></label>
+                    <input id="last_name" name="last_name" type="text" autocomplete="family-name" maxlength="80" required aria-describedby="last_name-error">
+                    <p class="field-error" id="last_name-error" data-error-for="last_name"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" autocomplete="organization" maxlength="160" aria-describedby="company-error">
+                    <p class="field-error" id="company-error" data-error-for="company"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="job_title">Job title</label>
+                    <input id="job_title" name="job_title" type="text" autocomplete="organization-title" maxlength="120" aria-describedby="job_title-error">
+                    <p class="field-error" id="job_title-error" data-error-for="job_title"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Business email <span aria-hidden="true">*</span></label>
+                    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="email-error">
+                    <p class="field-error" id="email-error" data-error-for="email"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9+().\-\s]{7,30}" aria-describedby="phone-hint phone-error">
+                    <p class="field-hint" id="phone-hint">Include a country code when applicable.</p>
+                    <p class="field-error" id="phone-error" data-error-for="phone"></p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-section">
+                <legend><span>02</span>Consulting need</legend>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="service_category">Service category <span aria-hidden="true">*</span></label>
+                    <select id="service_category" name="service_category" required aria-describedby="service_category-error">
+                      <option value="">Select a service</option>
+                      <option value="biotech_consulting">Biotech Consulting</option>
+                      <option value="pharmaceutical_consulting">Pharmaceutical Consulting</option>
+                      <option value="quality_gmp">Quality / GMP Consulting</option>
+                      <option value="laboratory_analytical">Laboratory / Analytical Consulting</option>
+                      <option value="it_consulting">IT Consulting</option>
+                      <option value="data_automation">Data / Automation</option>
+                      <option value="digital_transformation">Digital Transformation</option>
+                      <option value="strategy_advisory">Strategy / Advisory</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <p class="field-error" id="service_category-error" data-error-for="service_category"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="industry">Industry</label>
+                    <select id="industry" name="industry" aria-describedby="industry-error">
+                      <option value="">Select an industry</option>
+                      <option value="biotechnology">Biotechnology</option>
+                      <option value="pharmaceuticals">Pharmaceuticals</option>
+                      <option value="laboratory_analytical">Laboratory / Analytical</option>
+                      <option value="information_technology">Information Technology</option>
+                      <option value="professional_services">Professional Services</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <p class="field-error" id="industry-error" data-error-for="industry"></p>
+                  </div>
+                  <div class="form-field form-field-full">
+                    <div class="label-row">
+                      <label for="project_description">Project description <span aria-hidden="true">*</span></label>
+                      <span class="character-count" data-character-count aria-live="polite">0 / 2000</span>
+                    </div>
+                    <textarea id="project_description" name="project_description" rows="7" minlength="20" maxlength="2000" required aria-describedby="description-hint project_description-error"></textarea>
+                    <p class="field-hint" id="description-hint">Describe the challenge, desired outcome, and relevant context without sharing sensitive information.</p>
+                    <p class="field-error" id="project_description-error" data-error-for="project_description"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="expected_start_date">Expected start date</label>
+                    <input id="expected_start_date" name="expected_start_date" type="date" aria-describedby="start-date-hint expected_start_date-error">
+                    <p class="field-hint" id="start-date-hint">An estimate is fine.</p>
+                    <p class="field-error" id="expected_start_date-error" data-error-for="expected_start_date"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="project_duration">Estimated project duration</label>
+                    <select id="project_duration" name="project_duration" aria-describedby="project_duration-error">
+                      <option value="">Select an estimate</option>
+                      <option value="under_1_month">Under 1 month</option>
+                      <option value="1_to_3_months">1–3 months</option>
+                      <option value="3_to_6_months">3–6 months</option>
+                      <option value="6_to_12_months">6–12 months</option>
+                      <option value="ongoing">Ongoing support</option>
+                      <option value="not_sure">Not sure yet</option>
+                    </select>
+                    <p class="field-error" id="project_duration-error" data-error-for="project_duration"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="budget_range">Budget range</label>
+                    <select id="budget_range" name="budget_range" aria-describedby="budget-hint budget_range-error">
+                      <option value="">Select a range</option>
+                      <option value="under_5000">Under $5,000</option>
+                      <option value="5000_15000">$5,000–$15,000</option>
+                      <option value="15000_50000">$15,000–$50,000</option>
+                      <option value="50000_plus">$50,000+</option>
+                      <option value="not_determined">Not determined</option>
+                    </select>
+                    <p class="field-hint" id="budget-hint">Optional; helps identify an appropriate engagement format.</p>
+                    <p class="field-error" id="budget_range-error" data-error-for="budget_range"></p>
+                  </div>
+                  <div class="form-field">
+                    <label for="preferred_contact_method">Preferred contact method <span aria-hidden="true">*</span></label>
+                    <select id="preferred_contact_method" name="preferred_contact_method" required aria-describedby="preferred_contact_method-error">
+                      <option value="">Select a method</option>
+                      <option value="email">Email</option>
+                      <option value="phone">Phone</option>
+                      <option value="video_call">Video call</option>
+                    </select>
+                    <p class="field-error" id="preferred_contact_method-error" data-error-for="preferred_contact_method"></p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-section">
+                <legend><span>03</span>Final details</legend>
+                <div class="form-grid">
+                  <div class="form-field form-field-full">
+                    <label for="referral_source">How did you hear about HiQuant?</label>
+                    <select id="referral_source" name="referral_source" aria-describedby="referral_source-error">
+                      <option value="">Select an option</option>
+                      <option value="professional_referral">Professional referral</option>
+                      <option value="search">Online search</option>
+                      <option value="linkedin">LinkedIn</option>
+                      <option value="conference_event">Conference or event</option>
+                      <option value="previous_connection">Previous connection</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <p class="field-error" id="referral_source-error" data-error-for="referral_source"></p>
+                  </div>
+                  <div class="checkbox-field form-field-full">
+                    <input id="consent" name="consent" type="checkbox" required data-label="Consent" aria-describedby="consent-hint consent-error">
+                    <div>
+                      <label for="consent">I confirm that this inquiry contains no confidential, proprietary, patient-identifiable, clinical, trade-secret, or other regulated information, and I agree to the <a href="privacy.html">privacy notice</a> and <a href="terms.html">website terms</a>. <span aria-hidden="true">*</span></label>
+                      <p class="field-hint" id="consent-hint">Submitting the form does not establish a client relationship.</p>
+                      <p class="field-error" id="consent-error" data-error-for="consent"></p>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-actions">
+                <button class="button submit-button" type="submit" data-submit-button>
+                  <span data-submit-label>Check and preview submission</span>
+                  <span class="button-spinner" data-submit-spinner aria-hidden="true"></span>
+                </button>
+                <p>Nothing is transmitted or stored during this frontend phase.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand brand-footer" href="index.html" aria-label="HiQuant Consulting home">
+          <img class="brand-logo" src="assets/logo/log_color2_bg.png" alt="" width="1254" height="1254">
+          <span class="brand-name"><strong>HiQuant</strong><span>Consulting LLC</span></span>
+        </a>
+        <p>Consulting at the intersection of science, technology, data, and strategy.</p>
+        <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="intake.html" aria-current="page">Client inquiry</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+      </div>
+      <div class="container footer-legal">
+        <p>&copy; <span data-current-year>2026</span> HiQuant Consulting LLC. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy</a> <span aria-hidden="true">•</span> <a href="terms.html">Terms</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
