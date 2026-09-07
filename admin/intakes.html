@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Protected HiQuant client intake administration.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#071f45">
+    <title>Client Intakes | HiQuant Administration</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo_white_bg.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.min.js" defer></script>
+    <script src="../js/config.js" defer></script>
+    <script src="../js/supabase.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/admin-guard.js" defer></script>
+    <script src="../js/admin-intakes.js" defer></script>
+  </head>
+  <body class="admin-portal-page">
+    <a class="skip-link" href="#main-content">Skip to client intakes</a>
+    <div class="admin-loading" data-auth-loading role="status">
+      <span class="admin-loading-mark" aria-hidden="true"></span>
+      <p>Verifying administrator access…</p>
+    </div>
+    <div class="admin-shell is-hidden" data-protected-content>
+      <header class="admin-topbar">
+        <div class="container admin-topbar-inner">
+          <a class="brand brand-admin" href="index.html" aria-label="HiQuant administrator portal">
+            <img class="brand-logo" src="../assets/logo/logo_white_bg.png" alt="" width="1254" height="1254">
+            <span class="brand-name"><strong>HiQuant</strong><span>Administration</span></span>
+          </a>
+          <nav class="admin-nav" aria-label="Administrator navigation">
+            <a href="index.html">Overview</a>
+            <a href="intakes.html" aria-current="page">Client intakes</a>
+            <span aria-disabled="true">Appointments · Phase 8</span>
+          </nav>
+          <div class="admin-account">
+            <div>
+              <strong data-admin-name>Administrator</strong>
+              <span data-admin-email></span>
+            </div>
+            <button class="button button-small admin-signout" type="button" data-signout>Sign out</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="admin-main admin-intakes-main">
+        <div class="container">
+          <div class="admin-page-heading">
+            <div>
+              <p class="eyebrow eyebrow-dark">Protected client records</p>
+              <h1>Client intakes</h1>
+              <p class="admin-lead">Review inquiry details, advance lead status, and keep concise internal notes.</p>
+            </div>
+            <button class="button admin-refresh" type="button" data-refresh-intakes>Refresh records</button>
+          </div>
+
+          <div class="form-alert form-alert-error is-hidden" data-intake-error tabindex="-1" role="alert"></div>
+          <div class="form-alert form-alert-success is-hidden" data-intake-success tabindex="-1" role="status"></div>
+
+          <section class="admin-intake-workspace" aria-label="Client intake administration">
+            <div class="admin-list-card">
+              <div class="admin-filter-bar">
+                <div class="form-field">
+                  <label for="intake_search">Search current records</label>
+                  <input id="intake_search" type="search" placeholder="Name, company, email, or service" data-intake-search>
+                </div>
+                <div class="form-field">
+                  <label for="intake_status_filter">Status</label>
+                  <select id="intake_status_filter" data-status-filter>
+                    <option value="">All statuses</option>
+                    <option value="new">New</option>
+                    <option value="reviewing">Reviewing</option>
+                    <option value="contacted">Contacted</option>
+                    <option value="qualified">Qualified</option>
+                    <option value="proposal_sent">Proposal sent</option>
+                    <option value="converted">Converted</option>
+                    <option value="closed">Closed</option>
+                    <option value="declined">Declined</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="admin-list-meta">
+                <p data-intake-count>Loading records…</p>
+                <p>Showing up to the latest 500 inquiries.</p>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <caption class="sr-only">Client intake submissions</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Received</th>
+                      <th scope="col">Client</th>
+                      <th scope="col">Company</th>
+                      <th scope="col">Service</th>
+                      <th scope="col">Status</th>
+                      <th scope="col"><span class="sr-only">Action</span></th>
+                    </tr>
+                  </thead>
+                  <tbody data-intake-rows></tbody>
+                </table>
+              </div>
+              <div class="admin-empty is-hidden" data-intake-empty>
+                <h2>No matching inquiries</h2>
+                <p>Adjust the search or status filter, or refresh to check for new submissions.</p>
+              </div>
+            </div>
+
+            <aside class="admin-detail-card" aria-label="Selected intake details">
+              <div data-detail-placeholder>
+                <p class="admin-phase-label">Inquiry details</p>
+                <h2>Select an intake to review</h2>
+                <p>Choose View details from the table. Client information will appear here without leaving the workspace.</p>
+              </div>
+
+              <div class="is-hidden" data-detail-content>
+                <div class="admin-detail-heading">
+                  <div>
+                    <p class="admin-phase-label">Inquiry details</p>
+                    <h2 data-detail-name></h2>
+                    <p data-detail-company></p>
+                  </div>
+                  <span class="status-chip" data-detail-status></span>
+                </div>
+
+                <dl class="admin-detail-list">
+                  <div><dt>Received</dt><dd data-detail-created></dd></div>
+                  <div><dt>Business email</dt><dd data-detail-email></dd></div>
+                  <div><dt>Phone</dt><dd data-detail-phone></dd></div>
+                  <div><dt>Job title</dt><dd data-detail-job-title></dd></div>
+                  <div><dt>Service</dt><dd data-detail-service></dd></div>
+                  <div><dt>Industry</dt><dd data-detail-industry></dd></div>
+                  <div><dt>Expected start</dt><dd data-detail-start></dd></div>
+                  <div><dt>Duration</dt><dd data-detail-duration></dd></div>
+                  <div><dt>Budget</dt><dd data-detail-budget></dd></div>
+                  <div><dt>Preferred contact</dt><dd data-detail-contact></dd></div>
+                  <div><dt>Referral source</dt><dd data-detail-referral></dd></div>
+                  <div><dt>Consent</dt><dd data-detail-consent></dd></div>
+                  <div><dt>Consent time</dt><dd data-detail-consent-time></dd></div>
+                  <div class="admin-detail-wide"><dt>Project description</dt><dd data-detail-description></dd></div>
+                </dl>
+
+                <form class="admin-review-form" data-review-form>
+                  <h3>Internal review</h3>
+                  <div class="form-field">
+                    <label for="intake_status">Lead status</label>
+                    <select id="intake_status" name="status" required>
+                      <option value="new">New</option>
+                      <option value="reviewing">Reviewing</option>
+                      <option value="contacted">Contacted</option>
+                      <option value="qualified">Qualified</option>
+                      <option value="proposal_sent">Proposal sent</option>
+                      <option value="converted">Converted</option>
+                      <option value="closed">Closed</option>
+                      <option value="declined">Declined</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <div class="label-row">
+                      <label for="admin_notes">Administrator notes</label>
+                      <span class="character-count" data-notes-count>0 / 5000</span>
+                    </div>
+                    <textarea id="admin_notes" name="admin_notes" rows="7" maxlength="5000" aria-describedby="notes-guidance"></textarea>
+                    <p class="field-hint" id="notes-guidance">Internal only. Keep notes relevant, factual, and free of regulated or unnecessary sensitive information.</p>
+                  </div>
+                  <button class="button" type="submit" data-save-review>Save review</button>
+                </form>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

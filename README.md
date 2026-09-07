@@ -55,7 +55,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 4: Supabase database and security foundation (initial admin enrollment pending)
 - [x] Phase 5: live intake integration
 - [x] Phase 6: administrator authentication (initial administrator enrollment pending)
-- [ ] Phase 7: intake administration
+- [x] Phase 7: intake administration (successful admin-path testing pending enrollment)
 - [ ] Phase 8: scheduling and appointment administration
 - [ ] Phase 9: security, accessibility, and browser verification
 - [ ] Phase 10: production deployment and domain launch
@@ -77,6 +77,7 @@ Administrator routes:
 
 - admin/login.html — approved-account sign-in and password recovery
 - admin/index.html — session- and allowlist-protected portal entry
+- admin/intakes.html — protected intake list, detail review, status, and notes
 - admin/reset-password.html — recovery-link password update
 
 The privacy and terms pages require review and verified business contact details before production launch. See `docs/public-content.md` for the content assumptions and launch checklist.
@@ -88,3 +89,5 @@ The versioned Supabase schema and RLS policies live in `sql/`. See `docs/databas
 The browser connection uses the public configuration in `js/config.js`. Its publishable key is safe to expose by design; access is restricted by PostgreSQL privileges and Row Level Security. See `docs/intake-integration.md` for the Phase 5 integration and smoke-test procedure.
 
 See docs/admin-authentication.md for the Phase 6 security model, recovery redirect configuration, and one-time administrator enrollment steps.
+
+See docs/intake-administration.md for the Phase 7 intake workflow, optimistic update protection, and verification boundaries.

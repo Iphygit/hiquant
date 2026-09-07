@@ -26,6 +26,10 @@
         result.user.email || "";
       loading.classList.add("is-hidden");
       protectedContent.classList.remove("is-hidden");
+      window.hiquantAdminContext = result;
+      window.dispatchEvent(new CustomEvent("hiquant:admin-ready", {
+        detail: result
+      }));
     } catch (error) {
       console.error("Administrator access verification failed.");
       window.location.replace(loginUrl("unavailable"));
