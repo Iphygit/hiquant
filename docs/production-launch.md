@@ -16,6 +16,12 @@ Production-root assets include:
 - Open Graph and X/Twitter preview metadata on the homepage.
 - `assets/images/og-hiquant.png` as the branded social preview.
 
+## Deployment status
+
+GitHub Pages is publishing the repository root from `main`, and HTTPS is enforced. The public routes, branded 404 page, responsive browser behavior, and live Supabase intake and appointment submissions have passed production checks. Synthetic verification records were removed after the submission test.
+
+The remaining owner-controlled launch tasks are custom-domain configuration and initial administrator enrollment.
+
 ## Required Supabase Auth setting
 
 Before testing password recovery on the live site, add this exact URL to the Supabase Auth redirect allowlist:
