@@ -7,6 +7,7 @@ const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".html"))
   .concat(fs.readdirSync(path.join(root, "admin")).filter((name) => name.endsWith(".html")).map((name) => path.join("admin", name)));
 const jsFiles = fs.readdirSync(path.join(root, "js")).filter((name) => name.endsWith(".js")).map((name) => path.join("js", name));
 const expectedIntegrity = "sha384-fPWur1rx/DE6YtXP/x0MD6dd90RgnVsz5yX/DIg7CcVAnTBZsENWuIcpvVTM39ti";
+const canonicalPages = new Set(["index.html", "intake.html", "schedule.html", "privacy.html", "terms.html"]);
 const failures = [];
 
 function fail(file, message) {
@@ -26,6 +27,7 @@ for (const relativeFile of htmlFiles) {
   if (!/<meta\s+name="description"/i.test(html)) fail(relativeFile, "missing page description");
   if (!/<meta\s+name="referrer"\s+content="strict-origin-when-cross-origin"/i.test(html)) fail(relativeFile, "missing referrer policy");
   if (!/<meta\s+http-equiv="Content-Security-Policy"/i.test(html)) fail(relativeFile, "missing content security policy");
+  if (canonicalPages.has(relativeFile) && !/<link\s+rel="canonical"\s+href="https:\/\/iphygit\.github\.io\/hiquant\//i.test(html)) fail(relativeFile, "missing production canonical URL");
   if ((html.match(/<main\b/gi) || []).length !== 1) fail(relativeFile, "must contain exactly one main landmark");
   if ((html.match(/<h1\b/gi) || []).length !== 1) fail(relativeFile, "must contain exactly one h1");
   if (ids.length !== idSet.size) fail(relativeFile, "contains duplicate IDs");
@@ -68,6 +70,10 @@ for (const relativeFile of jsFiles) {
 
 const browserConfig = fs.readFileSync(path.join(root, "js", "config.js"), "utf8");
 if (/sb_secret_|service_role/i.test(browserConfig)) fail("js/config.js", "contains a secret or service-role key");
+
+for (const requiredFile of [".nojekyll", "404.html", "robots.txt", "sitemap.xml", path.join("assets", "images", "og-hiquant.png")]) {
+  if (!fs.existsSync(path.join(root, requiredFile))) fail(requiredFile, "missing production publication asset");
+}
 
 if (failures.length) {
   console.error(failures.join("\n"));
