@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Request a consultation time with HiQuant Consulting LLC.">
+    <meta name="theme-color" content="#071f45">
+    <title>Request a Meeting | HiQuant Consulting LLC</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo_white_bg.png">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.min.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/supabase.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/schedule.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="HiQuant Consulting home">
+          <img class="brand-logo" src="assets/logo/logo_white_bg.png" alt="" width="1254" height="1254">
+          <span class="brand-name"><strong>HiQuant</strong><span>Consulting LLC</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="sr-only">Open navigation menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+          <a href="index.html#services">Services</a><a href="index.html#industries">Industries</a><a href="index.html#why">Why HiQuant</a><a href="index.html#contact">Contact</a>
+          <a class="button button-small" href="intake.html">Request a consultation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <header class="page-hero intake-hero">
+        <div class="container legal-hero-inner">
+          <p class="breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> Request a meeting</p>
+          <p class="eyebrow">Choose a preferred time</p>
+          <h1>Request an introductory consultation.</h1>
+          <p>Tell us when you would like to meet and what you want to discuss. HiQuant will follow up to confirm availability.</p>
+        </div>
+      </header>
+
+      <section class="section section-tint" aria-labelledby="schedule-title">
+        <div class="container intake-layout">
+          <aside class="intake-aside">
+            <p class="eyebrow eyebrow-dark">Before you request</p>
+            <h2 id="schedule-title">A requested time is not yet a confirmed appointment.</h2>
+            <p>Choose a future date and your local time zone. We will confirm the time or suggest an alternative by email.</p>
+            <div class="privacy-callout"><strong>Keep details high-level.</strong><p>Do not include confidential, proprietary, patient-identifiable, clinical, trade-secret, or other regulated information.</p></div>
+            <ul class="intake-expectations">
+              <li><span>01</span>Select the conversation length that best fits your need.</li>
+              <li><span>02</span>Provide a concise, non-sensitive consultation topic.</li>
+              <li><span>03</span>Wait for HiQuant's email before treating the time as confirmed.</li>
+            </ul>
+          </aside>
+
+          <div class="form-card">
+            <div class="preview-notice" role="status"><strong>Secure request</strong><span>Your request is sent to HiQuant's protected appointment database.</span></div>
+            <div class="form-alert form-alert-error is-hidden" data-error-summary tabindex="-1" role="alert"><h2>Please check the highlighted fields.</h2><ul data-error-list></ul></div>
+            <div class="form-alert form-alert-success is-hidden" data-success-message tabindex="-1" role="status">
+              <p class="form-alert-kicker">Request received</p><h2>Thank you. Your preferred time has been submitted.</h2>
+              <p>This is not yet a confirmed appointment. HiQuant will follow up by email to confirm availability or suggest an alternative.</p>
+            </div>
+            <form id="schedule-form" novalidate>
+              <div class="hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+              <fieldset class="form-section">
+                <legend><span>01</span>Contact information</legend>
+                <div class="form-grid">
+                  <div class="form-field"><label for="client_name">Full name <span aria-hidden="true">*</span></label><input id="client_name" name="client_name" type="text" autocomplete="name" minlength="2" maxlength="160" required aria-describedby="client_name-error"><p class="field-error" id="client_name-error" data-error-for="client_name"></p></div>
+                  <div class="form-field"><label for="client_email">Business email <span aria-hidden="true">*</span></label><input id="client_email" name="client_email" type="email" autocomplete="email" maxlength="254" required aria-describedby="client_email-error"><p class="field-error" id="client_email-error" data-error-for="client_email"></p></div>
+                  <div class="form-field form-field-full"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" maxlength="160" aria-describedby="company-error"><p class="field-error" id="company-error" data-error-for="company"></p></div>
+                </div>
+              </fieldset>
+              <fieldset class="form-section">
+                <legend><span>02</span>Preferred meeting</legend>
+                <div class="form-grid">
+                  <div class="form-field form-field-full"><label for="meeting_type">Meeting type <span aria-hidden="true">*</span></label><select id="meeting_type" name="meeting_type" required aria-describedby="meeting_type-error"><option value="">Select a meeting</option><option value="initial_consultation_30">Initial consultation — 30 minutes</option><option value="project_discovery_45">Project discovery — 45 minutes</option><option value="technical_consultation_60">Technical consultation — 60 minutes</option></select><p class="field-error" id="meeting_type-error" data-error-for="meeting_type"></p></div>
+                  <div class="form-field"><label for="preferred_date">Preferred date <span aria-hidden="true">*</span></label><input id="preferred_date" name="preferred_date" type="date" required aria-describedby="preferred_date-hint preferred_date-error"><p class="field-hint" id="preferred_date-hint">Choose today or a future date.</p><p class="field-error" id="preferred_date-error" data-error-for="preferred_date"></p></div>
+                  <div class="form-field"><label for="preferred_time">Preferred time <span aria-hidden="true">*</span></label><input id="preferred_time" name="preferred_time" type="time" required aria-describedby="preferred_time-error"><p class="field-error" id="preferred_time-error" data-error-for="preferred_time"></p></div>
+                  <div class="form-field form-field-full"><label for="timezone">Time zone <span aria-hidden="true">*</span></label><input id="timezone" name="timezone" type="text" list="timezone-options" maxlength="100" required aria-describedby="timezone-hint timezone-error"><datalist id="timezone-options"><option value="America/New_York"><option value="America/Chicago"><option value="America/Denver"><option value="America/Los_Angeles"><option value="UTC"></datalist><p class="field-hint" id="timezone-hint">Your browser's time zone is filled in when available; you may change it.</p><p class="field-error" id="timezone-error" data-error-for="timezone"></p></div>
+                </div>
+              </fieldset>
+              <fieldset class="form-section">
+                <legend><span>03</span>Conversation context</legend>
+                <div class="form-grid">
+                  <div class="form-field form-field-full"><div class="label-row"><label for="consultation_topic">Consultation topic <span aria-hidden="true">*</span></label><span class="character-count" data-topic-count>0 / 300</span></div><textarea id="consultation_topic" name="consultation_topic" rows="4" minlength="5" maxlength="300" required aria-describedby="topic-hint consultation_topic-error"></textarea><p class="field-hint" id="topic-hint">Briefly describe the purpose and desired outcome.</p><p class="field-error" id="consultation_topic-error" data-error-for="consultation_topic"></p></div>
+                  <div class="form-field form-field-full"><div class="label-row"><label for="client_notes">Additional notes</label><span class="character-count" data-notes-count>0 / 2000</span></div><textarea id="client_notes" name="client_notes" rows="5" maxlength="2000" aria-describedby="client-notes-hint client_notes-error"></textarea><p class="field-hint" id="client-notes-hint">Optional. Do not include sensitive or regulated information.</p><p class="field-error" id="client_notes-error" data-error-for="client_notes"></p></div>
+                  <div class="checkbox-field form-field-full"><input id="consent" name="consent" type="checkbox" required data-label="Acknowledgement" aria-describedby="consent-hint consent-error"><div><label for="consent">I confirm this request contains no sensitive or regulated information, agree to the <a href="privacy.html">privacy notice</a> and <a href="terms.html">website terms</a>, and understand the time is not confirmed until HiQuant accepts it. <span aria-hidden="true">*</span></label><p class="field-hint" id="consent-hint">Requesting a meeting does not establish a client relationship.</p><p class="field-error" id="consent-error" data-error-for="consent"></p></div></div>
+                </div>
+              </fieldset>
+              <div class="form-actions"><button class="button submit-button" type="submit" data-submit-button><span data-submit-label>Request consultation time</span><span class="button-spinner" data-submit-spinner aria-hidden="true"></span></button><p>Your request will be stored securely for review.</p></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-main"><a class="brand brand-footer" href="index.html" aria-label="HiQuant Consulting home"><img class="brand-logo" src="assets/logo/log_color2_bg.png" alt="" width="1254" height="1254"><span class="brand-name"><strong>HiQuant</strong><span>Consulting LLC</span></span></a><p>Consulting at the intersection of science, technology, data, and strategy.</p><nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="intake.html">Client inquiry</a><a href="schedule.html" aria-current="page">Schedule</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div><div class="container footer-legal"><p>&copy; <span data-current-year>2026</span> HiQuant Consulting LLC. All rights reserved.</p><p><a href="privacy.html">Privacy</a> <span aria-hidden="true">•</span> <a href="terms.html">Terms</a></p></div></footer>
+  </body>
+</html>

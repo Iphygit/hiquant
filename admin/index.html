@@ -33,7 +33,7 @@
           <nav class="admin-nav" aria-label="Administrator navigation">
             <a href="index.html" aria-current="page">Overview</a>
             <a href="intakes.html">Client intakes</a>
-            <span aria-disabled="true">Appointments · Phase 8</span>
+            <a href="appointments.html">Appointments</a>
           </nav>
           <div class="admin-account">
             <div>
@@ -49,35 +49,43 @@
           <div class="admin-page-heading">
             <div>
               <p class="eyebrow eyebrow-dark">Pipeline overview</p>
-              <h1>Client inquiry workspace</h1>
-              <p class="admin-lead">Review the current consulting pipeline and open the protected intake workspace.</p>
+              <h1>Client request workspace</h1>
+              <p class="admin-lead">Review the consulting pipeline, appointment demand, and latest protected records.</p>
             </div>
             <a class="button" href="intakes.html">Manage client intakes</a>
           </div>
 
           <div class="form-alert form-alert-error is-hidden" data-dashboard-error role="alert"></div>
 
-          <section class="admin-summary-grid" aria-label="Intake summary">
+          <section class="admin-summary-grid" aria-label="Client request summary">
             <article class="admin-summary-card">
               <span>New inquiries</span>
               <strong data-count-new>—</strong>
               <p>Awaiting initial review</p>
             </article>
             <article class="admin-summary-card">
-              <span>In review</span>
-              <strong data-count-reviewing>—</strong>
-              <p>Currently being assessed</p>
+              <span>Pending appointments</span>
+              <strong data-count-requested>—</strong>
+              <p>Awaiting confirmation</p>
             </article>
             <article class="admin-summary-card">
-              <span>Qualified</span>
-              <strong data-count-qualified>—</strong>
-              <p>Potential engagements</p>
+              <span>Confirmed meetings</span>
+              <strong data-count-confirmed>—</strong>
+              <p>Accepted meeting requests</p>
             </article>
             <article class="admin-summary-card">
-              <span>Total inquiries</span>
+              <span>Total requests</span>
               <strong data-count-total>—</strong>
-              <p>All retained submissions</p>
+              <p>Inquiries and appointments</p>
             </article>
+          </section>
+
+          <section class="admin-recent-card" aria-labelledby="appointments-heading">
+            <div class="admin-section-heading">
+              <div><p class="admin-phase-label">Meeting activity</p><h2 id="appointments-heading">Recent appointment requests</h2></div>
+              <a href="appointments.html">View all appointments</a>
+            </div>
+            <div class="admin-recent-list" data-recent-appointments aria-live="polite"><p class="admin-muted">Loading recent appointments…</p></div>
           </section>
 
           <section class="admin-recent-card" aria-labelledby="recent-heading">

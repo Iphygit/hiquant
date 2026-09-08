@@ -640,6 +640,27 @@
   color: #625767;
 }
 
+.status-requested {
+  background: #dff7f5;
+  color: #086d69;
+}
+
+.status-confirmed {
+  background: #e3f5e8;
+  color: #25693a;
+}
+
+.status-rescheduled {
+  background: #fff2cf;
+  color: #7a5700;
+}
+
+.status-completed,
+.status-cancelled {
+  background: #f0edf1;
+  color: #625767;
+}
+
 .admin-empty {
   padding: 3rem 1rem;
   text-align: center;

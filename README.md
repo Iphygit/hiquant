@@ -56,7 +56,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 5: live intake integration
 - [x] Phase 6: administrator authentication (initial administrator enrollment pending)
 - [x] Phase 7: intake administration (successful admin-path testing pending enrollment)
-- [ ] Phase 8: scheduling and appointment administration
+- [x] Phase 8: scheduling and appointment administration (successful admin-path testing pending enrollment)
 - [ ] Phase 9: security, accessibility, and browser verification
 - [ ] Phase 10: production deployment and domain launch
 
@@ -70,6 +70,7 @@ Current public pages:
 
 - `index.html` — company positioning, services, industries, approach, and consultation call to action
 - `intake.html` — live consultation inquiry form with frontend validation and secure Supabase submission
+- `schedule.html` — live appointment-request form with date, time-zone, and consent validation
 - `privacy.html` — website privacy notice draft
 - `terms.html` — website terms draft
 
@@ -78,6 +79,7 @@ Administrator routes:
 - admin/login.html — approved-account sign-in and password recovery
 - admin/index.html — session- and allowlist-protected portal entry
 - admin/intakes.html — protected intake list, detail review, status, and notes
+- admin/appointments.html — protected appointment list, detail review, status, and notes
 - admin/reset-password.html — recovery-link password update
 
 The privacy and terms pages require review and verified business contact details before production launch. See `docs/public-content.md` for the content assumptions and launch checklist.
@@ -91,3 +93,5 @@ The browser connection uses the public configuration in `js/config.js`. Its publ
 See docs/admin-authentication.md for the Phase 6 security model, recovery redirect configuration, and one-time administrator enrollment steps.
 
 See docs/intake-administration.md for the Phase 7 intake workflow, optimistic update protection, and verification boundaries.
+
+See docs/scheduling-and-appointments.md for the Phase 8 appointment-request flow, protected administration, and live API smoke test.
