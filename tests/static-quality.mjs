@@ -71,6 +71,11 @@ for (const relativeFile of jsFiles) {
 const browserConfig = fs.readFileSync(path.join(root, "js", "config.js"), "utf8");
 if (/sb_secret_|service_role/i.test(browserConfig)) fail("js/config.js", "contains a secret or service-role key");
 
+const scheduleSource = fs.readFileSync(path.join(root, "js", "schedule.js"), "utf8");
+if (!/typeof control\.minLength !== ["']number["']/.test(scheduleSource)) {
+  fail("js/schedule.js", "text minlength validation must exclude controls such as select elements");
+}
+
 for (const requiredFile of [".nojekyll", "404.html", "robots.txt", "sitemap.xml", path.join("assets", "images", "og-hiquant.png")]) {
   if (!fs.existsSync(path.join(root, requiredFile))) fail(requiredFile, "missing production publication asset");
 }

@@ -40,7 +40,7 @@
 
   function isValid(control) {
     const hasRequiredText = control.type === "checkbox" || !control.required || Boolean(control.value.trim());
-    const hasMinimumText = control.minLength < 1 || control.value.trim().length >= control.minLength;
+    const hasMinimumText = typeof control.minLength !== "number" || control.minLength < 1 || control.value.trim().length >= control.minLength;
     return control.validity.valid && hasRequiredText && hasMinimumText && !(control === preferredDate && control.value && control.value < control.min);
   }
 
