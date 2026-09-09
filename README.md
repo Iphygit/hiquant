@@ -58,7 +58,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 7: intake administration (successful admin-path testing pending enrollment)
 - [x] Phase 8: scheduling and appointment administration (successful admin-path testing pending enrollment)
 - [x] Phase 9: security, accessibility, and browser verification (launch-environment checks documented)
-- [ ] Phase 10: production deployment and domain launch (GitHub Pages live; custom domain and admin enrollment pending)
+- [ ] Phase 10: production deployment and domain launch (custom-domain DNS activation and admin enrollment pending)
 
 See [the detailed project plan](docs/HiQuant_Web_Application_Project_Plan.md) for the complete MVP scope.
 
@@ -100,6 +100,6 @@ See docs/release-readiness.md for the Phase 9 security hardening, accessibility 
 
 See docs/production-launch.md for the Phase 10 GitHub Pages configuration, production URL, Supabase redirect requirement, and custom-domain checklist.
 
-Production URL: https://iphygit.github.io/hiquant/
+Production URL: https://hiquant.co/
 
 Run `node tests/static-quality.mjs` for the repeatable structural accessibility, local-link, CSP, script-integrity, and unsafe-DOM quality gate.

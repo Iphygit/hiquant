@@ -4,7 +4,7 @@
 
 The production source is the repository's `main` branch at the root directory. GitHub Pages publishes the exact static files without a separate application build. The canonical launch URL is:
 
-`https://iphygit.github.io/hiquant/`
+`https://hiquant.co/`
 
 Production-root assets include:
 
@@ -20,27 +20,21 @@ Production-root assets include:
 
 GitHub Pages is publishing the repository root from `main`, and HTTPS is enforced. The public routes, branded 404 page, responsive browser behavior, and live Supabase intake and appointment submissions have passed production checks. Synthetic verification records were removed after the submission test.
 
-The remaining owner-controlled launch tasks are custom-domain configuration and initial administrator enrollment.
+The remaining owner-controlled launch tasks are activating the required Spaceship DNS records and initial administrator enrollment.
 
 ## Required Supabase Auth setting
 
 Before testing password recovery on the live site, add this exact URL to the Supabase Auth redirect allowlist:
 
-`https://iphygit.github.io/hiquant/admin/reset-password.html`
+`https://hiquant.co/admin/reset-password.html`
 
 Set the Supabase Auth Site URL to the production homepage when the site becomes the primary environment. Keep only intentional local and production redirect entries.
 
 ## Custom domain
 
-No custom domain was supplied during implementation. When the business domain is ready:
+The owner confirmed `hiquant.co` is registered with Spaceship. The repository is configured to use the apex domain and includes the required `CNAME` file. In Spaceship Advanced DNS, the apex must point to GitHub Pages using its four `A` records, and `www` must be a `CNAME` to `iphygit.github.io`.
 
-1. Verify the domain in GitHub account settings to reduce takeover risk.
-2. Configure the Pages custom domain, then add the required DNS records at the registrar.
-3. Wait for GitHub's TLS certificate to become approved and enforce HTTPS.
-4. Replace the GitHub Pages hostname in canonical, Open Graph, sitemap, robots, and Supabase redirect URLs.
-5. Add the generated `CNAME` file to the repository and repeat the production smoke tests.
-
-Do not create DNS records or a `CNAME` file until the exact owned domain is confirmed.
+After DNS propagation, verify both the apex and `www` routes, wait for GitHub's TLS certificate, enforce HTTPS, and repeat the production smoke tests.
 
 ## Launch verification
 
@@ -52,4 +46,4 @@ After each production publication, verify:
 - Mobile navigation, keyboard focus, validation summaries, and responsive layout behave as tested in Phase 9.
 - Administrator sign-in and recovery work after the initial Auth user and active admin profile are created.
 
-The public site can launch on its GitHub Pages URL independently of administrator enrollment. The protected admin success path and custom-domain cutover remain owner-controlled launch tasks.
+The protected admin success path remains pending initial administrator enrollment.

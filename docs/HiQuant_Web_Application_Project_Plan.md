@@ -628,7 +628,7 @@ The initial MVP should **not** be presented as a HIPAA-compliant portal.
 
 - [ ] Create GitHub account/repository.
 - [ ] Create Supabase account/project.
-- [ ] Purchase custom domain.
+- [x] Purchase custom domain (`hiquant.co`).
 - [ ] Create project folder structure.
 - [ ] Add HiQuant branding assets.
 

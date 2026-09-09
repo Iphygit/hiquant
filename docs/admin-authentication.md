@@ -37,8 +37,7 @@ Never place an administrator password, secret key, or service-role key in this r
 Supabase accepts password-recovery redirects only when the destination is allowlisted in Authentication → URL Configuration. Add the URLs used by the project, for example:
 
 - http://localhost:8000/admin/reset-password.html
-- https://iphygit.github.io/hiquant/admin/reset-password.html
-- The equivalent custom-domain URL when Phase 10 configures the domain
+- https://hiquant.co/admin/reset-password.html
 
 Recovery emails cannot return to a file:// page. Use a local static server during development.
 

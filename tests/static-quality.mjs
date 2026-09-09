@@ -27,7 +27,7 @@ for (const relativeFile of htmlFiles) {
   if (!/<meta\s+name="description"/i.test(html)) fail(relativeFile, "missing page description");
   if (!/<meta\s+name="referrer"\s+content="strict-origin-when-cross-origin"/i.test(html)) fail(relativeFile, "missing referrer policy");
   if (!/<meta\s+http-equiv="Content-Security-Policy"/i.test(html)) fail(relativeFile, "missing content security policy");
-  if (canonicalPages.has(relativeFile) && !/<link\s+rel="canonical"\s+href="https:\/\/iphygit\.github\.io\/hiquant\//i.test(html)) fail(relativeFile, "missing production canonical URL");
+  if (canonicalPages.has(relativeFile) && !/<link\s+rel="canonical"\s+href="https:\/\/hiquant\.co\//i.test(html)) fail(relativeFile, "missing production canonical URL");
   if ((html.match(/<main\b/gi) || []).length !== 1) fail(relativeFile, "must contain exactly one main landmark");
   if ((html.match(/<h1\b/gi) || []).length !== 1) fail(relativeFile, "must contain exactly one h1");
   if (ids.length !== idSet.size) fail(relativeFile, "contains duplicate IDs");
@@ -79,6 +79,9 @@ if (!/typeof control\.minLength !== ["']number["']/.test(scheduleSource)) {
 for (const requiredFile of [".nojekyll", "404.html", "robots.txt", "sitemap.xml", path.join("assets", "images", "og-hiquant.png")]) {
   if (!fs.existsSync(path.join(root, requiredFile))) fail(requiredFile, "missing production publication asset");
 }
+
+const customDomain = fs.readFileSync(path.join(root, "CNAME"), "utf8").trim();
+if (customDomain !== "hiquant.co") fail("CNAME", "must contain the confirmed production domain");
 
 if (failures.length) {
   console.error(failures.join("\n"));

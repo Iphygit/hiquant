@@ -3,4 +3,4 @@ Allow: /
 Disallow: /hiquant/admin/
 Disallow: /admin/
 
-Sitemap: https://iphygit.github.io/hiquant/sitemap.xml
+Sitemap: https://hiquant.co/sitemap.xml
