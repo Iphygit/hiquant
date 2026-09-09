@@ -20,7 +20,7 @@ Production-root assets include:
 
 GitHub Pages is publishing the repository root from `main`, and HTTPS is enforced. The public routes, branded 404 page, responsive browser behavior, and live Supabase intake and appointment submissions have passed production checks. Synthetic verification records were removed after the submission test.
 
-The remaining owner-controlled launch tasks are activating the required Spaceship DNS records and initial administrator enrollment.
+The custom-domain launch is complete. Initial administrator enrollment remains an owner-controlled application setup task.
 
 ## Required Supabase Auth setting
 
@@ -32,9 +32,9 @@ Set the Supabase Auth Site URL to the production homepage when the site becomes 
 
 ## Custom domain
 
-The owner confirmed `hiquant.co` is registered with Spaceship. The repository is configured to use the apex domain and includes the required `CNAME` file. In Spaceship Advanced DNS, the apex must point to GitHub Pages using its four `A` records, and `www` must be a `CNAME` to `iphygit.github.io`.
+The owner confirmed `hiquant.co` is registered with Spaceship. The apex points to GitHub Pages using its four `A` records, `www` is a `CNAME` to `iphygit.github.io`, and the GitHub ownership-verification TXT record is active. GitHub Pages has issued the TLS certificate and enforces HTTPS.
 
-After DNS propagation, verify both the apex and `www` routes, wait for GitHub's TLS certificate, enforce HTTPS, and repeat the production smoke tests.
+Production checks confirm that HTTP redirects to HTTPS, `www` redirects to the apex domain, all public routes and assets return successfully, and the desktop/mobile browser smoke suite passes.
 
 ## Launch verification
 

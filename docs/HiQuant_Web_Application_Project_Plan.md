@@ -691,9 +691,9 @@ The initial MVP should **not** be presented as a HIPAA-compliant portal.
 - [ ] Push production code to GitHub.
 - [ ] Enable GitHub Pages.
 - [ ] Test GitHub Pages URL.
-- [ ] Add custom domain.
+- [x] Add custom domain (`hiquant.co`).
 - [ ] Configure DNS.
-- [ ] Enable HTTPS.
+- [x] Enable HTTPS.
 - [ ] Perform production security tests.
 - [ ] Launch website.
 

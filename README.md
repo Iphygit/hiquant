@@ -58,7 +58,7 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 7: intake administration (successful admin-path testing pending enrollment)
 - [x] Phase 8: scheduling and appointment administration (successful admin-path testing pending enrollment)
 - [x] Phase 9: security, accessibility, and browser verification (launch-environment checks documented)
-- [ ] Phase 10: production deployment and domain launch (custom-domain DNS activation and admin enrollment pending)
+- [x] Phase 10: production deployment and domain launch (`hiquant.co` live with enforced HTTPS)
 
 See [the detailed project plan](docs/HiQuant_Web_Application_Project_Plan.md) for the complete MVP scope.
 
