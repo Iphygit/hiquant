@@ -34,6 +34,32 @@ Never place an administrator password, secret key, or service-role key in this r
 
 The owner should now sign in at `https://hiquant.co/admin/login.html`, verify the dashboard and protected intake/appointment workflows, and use the recovery flow to confirm the production redirect.
 
+## Routine sign-in and additional employees
+
+An existing administrator does not repeat the enrollment process. They use their own email and password at `https://hiquant.co/admin/login.html` for every routine sign-in.
+
+Each additional employee who needs the dashboard must be enrolled once:
+
+1. In Supabase Dashboard, go to Authentication → Users and create a separate Auth user for the employee.
+2. Use the employee's business email and a strong unique temporary password; never reuse or share the owner's account.
+3. Edit the email placeholder in `sql/create-admin-profile.sql`, then run the script once in the Supabase SQL Editor to create the matching active administrator profile.
+4. Have the employee replace the temporary password through the approved recovery workflow.
+5. Verify that the employee can sign in and access the dashboard, then enable MFA when available.
+
+The two records serve different purposes: the Supabase Auth user proves identity, while the active `admin_profiles` row grants HiQuant administrator authorization. Creating only one of them is insufficient.
+
+The current MVP intentionally uses this manual process because there is no public admin registration. If employee invitations are automated later, user creation must run only in trusted server-side code or a Supabase Edge Function; the service-role key must never be exposed in this static website.
+
+## Administrator offboarding
+
+When an employee no longer needs access:
+
+1. Set their `admin_profiles.is_active` value to `false` first so the RLS authorization check rejects protected data requests.
+2. Remove the employee's Supabase Auth user, or revoke their sessions according to the organization's retention policy.
+3. Confirm the employee can no longer reach protected intake or appointment data.
+
+Deleting an Auth user prevents new sessions and refreshes, but an already-issued access token can remain valid until it expires. Keeping the database membership inactive provides the immediate authorization check used by this application.
+
 ## Recovery redirect configuration
 
 Supabase accepts password-recovery redirects only when the destination is allowlisted in Authentication → URL Configuration. Add the URLs used by the project, for example:

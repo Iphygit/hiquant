@@ -90,7 +90,7 @@ The versioned Supabase schema and RLS policies live in `sql/`. See `docs/databas
 
 The browser connection uses the public configuration in `js/config.js`. Its publishable key is safe to expose by design; access is restricted by PostgreSQL privileges and Row Level Security. See `docs/intake-integration.md` for the Phase 5 integration and smoke-test procedure.
 
-See docs/admin-authentication.md for the Phase 6 security model, recovery redirect configuration, and one-time administrator enrollment steps.
+See docs/admin-authentication.md for the Phase 6 security model, recovery redirect configuration, and administrator onboarding/offboarding steps. Existing administrators sign in normally; only each additional employee needs the one-time Supabase Auth user and matching active `admin_profiles` record.
 
 See docs/intake-administration.md for the Phase 7 intake workflow, optimistic update protection, and verification boundaries.
 

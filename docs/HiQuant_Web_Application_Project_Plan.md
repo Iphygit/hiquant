@@ -218,7 +218,9 @@ Use:
 - Email
 - Password
 
-Do not create public admin registration. Create the initial administrator manually through Supabase Authentication.
+Do not create public admin registration. Create administrators manually through Supabase Authentication and authorize each one with a separate active `admin_profiles` record.
+
+Existing administrators use their same account for routine sign-in. The Supabase setup steps are required only once for each new employee who needs dashboard access; administrators must never share accounts or passwords.
 
 ### 7.2 Admin Dashboard
 
@@ -377,7 +379,7 @@ with check (true);
 
 ### 9.4 Admin Authorization
 
-For a single-owner MVP:
+For the initial owner:
 
 1. Create one Supabase Auth account manually.
 2. Create one matching `admin_profiles` record.
@@ -409,6 +411,20 @@ UPDATE appointments
 ```
 
 Avoid public DELETE operations.
+
+### 9.5 Future Employee Administrator Access
+
+For every additional employee who needs the admin dashboard:
+
+1. Create a separate user in Supabase Dashboard → Authentication → Users.
+2. Give the employee a unique temporary password and require them to replace it through the approved recovery flow.
+3. Run `sql/create-admin-profile.sql` with that employee's email to create the matching active `admin_profiles` record.
+4. Confirm the employee can sign in and that an authenticated user without an active profile is denied.
+5. Enable MFA when supported by the selected Supabase plan and account configuration.
+
+This is one-time enrollment per employee, not a step repeated on every login. Do not add public administrator registration and do not place a Supabase service-role key in browser code. A future self-service invitation workflow must run only in a trusted server or Supabase Edge Function.
+
+When an employee leaves, first set their `admin_profiles.is_active` value to `false`, then remove the Supabase Auth user or revoke their sessions as appropriate. This preserves the database authorization block while any previously issued access token reaches expiry.
 
 ## 10. Suggested Project Structure
 
