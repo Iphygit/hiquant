@@ -76,6 +76,11 @@ if (!/typeof control\.minLength !== ["']number["']/.test(scheduleSource)) {
   fail("js/schedule.js", "text minlength validation must exclude controls such as select elements");
 }
 
+const adminStyles = fs.readFileSync(path.join(root, "css", "admin.css"), "utf8");
+if (!/\.admin-loading\.is-hidden\s*\{[^}]*display:\s*none;/s.test(adminStyles)) {
+  fail("css/admin.css", "administrator verification overlay must honor its hidden state");
+}
+
 for (const requiredFile of [".nojekyll", "404.html", "robots.txt", "sitemap.xml", path.join("assets", "images", "og-hiquant.png")]) {
   if (!fs.existsSync(path.join(root, requiredFile))) fail(requiredFile, "missing production publication asset");
 }

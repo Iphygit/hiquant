@@ -196,6 +196,10 @@
   color: var(--white);
 }
 
+.admin-loading.is-hidden {
+  display: none;
+}
+
 .admin-loading-mark {
   width: 2.5rem;
   height: 2.5rem;
