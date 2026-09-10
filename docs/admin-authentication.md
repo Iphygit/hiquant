@@ -20,7 +20,7 @@ The JavaScript guard improves the route experience, but it is not the data-secur
 
 ## Initial administrator enrollment
 
-The connected project currently has no Supabase Auth users and no active administrator profile. To enroll the owner:
+Initial enrollment was completed on September 9, 2026. The confirmed Supabase Auth user is linked to one active `admin_profiles` row with the `admin` role. The administrator email is intentionally not stored in this repository. The enrollment procedure was:
 
 1. Open the Supabase Dashboard for Hiquant Web Project.
 2. Go to Authentication → Users and create the administrator manually.
@@ -28,9 +28,11 @@ The connected project currently has no Supabase Auth users and no active adminis
 4. Edit the placeholder email in sql/create-admin-profile.sql.
 5. Run that script once in the Supabase SQL editor.
 6. Sign in at admin/login.html and immediately replace any temporary password through the recovery workflow.
-7. Enable MFA before production launch when the chosen Supabase plan and account configuration support it.
+7. Enable MFA after enrollment when the chosen Supabase plan and account configuration support it.
 
 Never place an administrator password, secret key, or service-role key in this repository.
+
+The owner should now sign in at `https://hiquant.co/admin/login.html`, verify the dashboard and protected intake/appointment workflows, and use the recovery flow to confirm the production redirect.
 
 ## Recovery redirect configuration
 
@@ -56,7 +58,7 @@ tests/auth-api-smoke.mjs uses the same publishable key as the website and verifi
 - Invalid credentials do not create a session.
 - Anonymous administrator-membership access is rejected or returns zero rows.
 
-Full successful-login, recovery-email, and logout testing requires the manually enrolled administrator account. Do not add those credentials to automated test files.
+Full successful-login, recovery-email, and logout testing requires the owner to use the enrolled account. Do not share the password or add credentials to automated test files.
 
 ## Phase 6 live verification result
 
@@ -65,4 +67,7 @@ On September 7, 2026, the connected Supabase project returned:
 - HTTP 400 for an invalid email/password login, with no session created.
 - HTTP 401 for an anonymous request to read admin_profiles.
 - Zero Auth users and zero active administrator profiles before owner enrollment.
-- No findings from the Supabase Security Advisor.
+- One confirmed Auth user and one active administrator profile after owner enrollment.
+- Anonymous administrator-membership reads remain rejected with HTTP 401.
+
+The post-enrollment Security Advisor reports that leaked-password protection is disabled. Enable it in Supabase Auth settings when available for the selected plan.

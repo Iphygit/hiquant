@@ -52,11 +52,11 @@ The project deliberately avoids a traditional application server for the MVP. Pu
 - [x] Phase 1: shared design system and responsive page shell
 - [x] Phase 2: public marketing pages
 - [x] Phase 3: client-side intake workflow
-- [x] Phase 4: Supabase database and security foundation (initial admin enrollment pending)
+- [x] Phase 4: Supabase database and security foundation
 - [x] Phase 5: live intake integration
-- [x] Phase 6: administrator authentication (initial administrator enrollment pending)
-- [x] Phase 7: intake administration (successful admin-path testing pending enrollment)
-- [x] Phase 8: scheduling and appointment administration (successful admin-path testing pending enrollment)
+- [x] Phase 6: administrator authentication (initial administrator enrolled)
+- [x] Phase 7: intake administration (owner sign-in verification pending)
+- [x] Phase 8: scheduling and appointment administration (owner sign-in verification pending)
 - [x] Phase 9: security, accessibility, and browser verification (launch-environment checks documented)
 - [x] Phase 10: production deployment and domain launch (`hiquant.co` live with enforced HTTPS)
 

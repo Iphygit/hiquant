@@ -20,4 +20,4 @@ The dashboard now summarizes inquiries and appointments and shows recent records
 
 Run `node tests/appointment-api-smoke.mjs` from the repository root. Expect HTTP 201 for the approved public insert and HTTP 4xx for anonymous read, protected-field insert, and update attempts. The test creates a uniquely marked synthetic row; delete it through an owner-level SQL session immediately afterward.
 
-Successful signed-in administrator reads and updates require the one-time administrator enrollment described in `docs/admin-authentication.md`. That success-path verification remains pending until the owner account is enrolled.
+The administrator account is enrolled. Successful signed-in reads and updates remain pending the owner's first production sign-in.

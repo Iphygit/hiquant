@@ -20,7 +20,7 @@ Production-root assets include:
 
 GitHub Pages is publishing the repository root from `main`, and HTTPS is enforced. The public routes, branded 404 page, responsive browser behavior, and live Supabase intake and appointment submissions have passed production checks. Synthetic verification records were removed after the submission test.
 
-The custom-domain launch is complete. Initial administrator enrollment remains an owner-controlled application setup task.
+The custom-domain launch and initial administrator enrollment are complete. Owner sign-in and recovery-flow confirmation remain.
 
 ## Required Supabase Auth setting
 
@@ -46,4 +46,4 @@ After each production publication, verify:
 - Mobile navigation, keyboard focus, validation summaries, and responsive layout behave as tested in Phase 9.
 - Administrator sign-in and recovery work after the initial Auth user and active admin profile are created.
 
-The protected admin success path remains pending initial administrator enrollment.
+The protected admin success path remains pending the owner's first production sign-in.

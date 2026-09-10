@@ -47,4 +47,4 @@ On September 7, 2026:
 - An anonymous intake status/notes update was rejected with HTTP 401.
 - The connected project contained zero intake records, so the smoke test changed no data.
 - The Supabase Security Advisor reported no findings.
-- Successful administrator-path verification remains pending the one-time owner enrollment.
+- Successful administrator-path verification remains pending the owner's first production sign-in.
